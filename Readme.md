@@ -6,7 +6,7 @@ Script to intialize a virtual python environment and the needed requirements ins
 
 Given that there is a *python3* installation including the *venv* module, this script initializes an virtual python enviroment in a subfolder (***venv***) relative to this init script. 
 
-Further it installs all dependencies defined in an optional file called ***requires.txt*** into that virtual python environment. This also works for an already existing venv (virtual python environment). The dependencies can be defined with a version
+Further it installs all dependencies defined in an optional file called ***requirements.txt*** into that virtual python environment. This also works for an already existing venv (virtual python environment). The dependencies can be defined with a version
 ```
 pkg-resources==0.0.0
 ```
@@ -16,7 +16,7 @@ pkg-resources
 ```
 *The later results in latest version installed.*
 
-In addition this script, generates an additional executable script ***savedeps*** in *venv/bin/* which is available in *PATH* as long as the virtual environment is active. This *savedeps* script generates or overwrites the ***requires.txt*** (residing next to the ***init_venv.sh*** script) with the list of the modules installed in this *venv*.
+In addition this script, generates an additional executable script ***savedeps*** in *venv/bin/* which is available in *PATH* as long as the virtual environment is active. This *savedeps* script generates or overwrites the ***requirements.txt*** (residing next to the ***init_venv.sh*** script) with the list of the modules installed in this *venv*.
 
 It also upgrades to the latest version of [pip](https://pip.pypa.io/en/stable/) used inside the *venv*. The python package installer *pip* is used to manage the dependencies inside the *venv*.
 
@@ -45,7 +45,7 @@ savedeps
 
 The script *savedeps* is only available as long as the venv is active. 
 
-This *savedeps* script overwrites ***requires.txt*** with the list of the modules currently installed in this *venv*.
+This *savedeps* script overwrites ***requirements.txt*** with the list of the modules currently installed in this *venv*.
 
 ## Contributing
 

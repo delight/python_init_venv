@@ -6,7 +6,7 @@ if [[ $_ == $0 ]]; then
   exit 1
 fi
 
-REQ_FILE_NAME=requires.txt
+REQ_FILE_NAME=requirements.txt
 SAVEDEPS_SCRIPT_NAME=savedeps
 
 if ! [ -x "$(command -v python3)" ]; then
@@ -32,11 +32,12 @@ SAVE_DEPS_SCRIPT="$VIRTUAL_ENV"/bin/$SAVEDEPS_SCRIPT_NAME
 
 pip install --upgrade pip > /dev/null 2>&1 
 
-if [ -f $REQ_FILE ]; then
-  for PKG in $(cat $REQ_FILE); do
-    pip install --upgrade "${PKG}" > /dev/null 2>&1 
-  done
-fi
+# if [ -f $REQ_FILE ]; then
+#   for PKG in $(cat $REQ_FILE); do
+#     pip install --upgrade "${PKG}" > /dev/null 2>&1 
+#   done
+# fi
+pip install --upgrade -r $REQ_FILE
 
 echo "#!/usr/bin/env bash" > $SAVE_DEPS_SCRIPT
 echo "pip freeze > \$VIRTUAL_ENV/../$REQ_FILE_NAME" >> $SAVE_DEPS_SCRIPT
